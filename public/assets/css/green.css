@@ -1,0 +1,174 @@
+/* 1️⃣ Import font harus paling atas */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+/* 2️⃣ Root Variables */
+:root {
+  --green-900: #0e7a3f;
+  --green-700: #18a558;
+  --green-500: #2dc36a;
+  --green: #20a05a;
+  --green-dark: #17844a;
+}
+
+/* 3️⃣ Terapkan font ke semua elemen */
+html, body, * {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Gradient Brand */
+.bg-brand {
+  background: linear-gradient(
+    180deg,
+    var(--green-900),
+    var(--green-700) 55%,
+    var(--green-500)
+  ) !important;
+}
+
+/* Text Color Brand */
+.text-brand {
+  color: var(--green) !important;
+}
+
+/* Button Brand */
+.btn-brand {
+    background-color: #ffd200 !important;
+    color: #1f2937 !important;
+    border: none !important;
+    padding: 12px 28px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 6px 16px rgba(255, 210, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .btn-brand:hover {
+    background-color: #ffca00 !important;
+    box-shadow: 0 8px 20px rgba(255, 210, 0, 0.45) !important;
+    transform: translateY(-2px) !important;
+    color: #1f2937 !important;
+  }
+  
+/* Card Brand */
+.card-brand {
+  border: none;
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+}
+
+/* Pill Component */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e7f7ee;
+  color: var(--green);
+  font-size: 14px;
+}
+
+/* Dot Element */
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: #e8eef6;
+  display: inline-block;
+}
+
+/* Footer Gradient */
+.footer-brand {
+  background: linear-gradient(180deg, var(--green-700), var(--green-900));
+}
+
+/* Pastikan card-body jadi flex agar isi bisa menyesuaikan */
+.card-brand .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  /* Buat tombol selalu nempel di bawah card */
+  .card-brand .btn-brand,
+  .card-brand .btn-secondary {
+    margin-top: auto;
+    align-self: flex-start; /* biar tombol tetap di kiri, bukan tengah */
+  }
+  
+  .bg-brand {
+    background: linear-gradient(120deg, #ffd200, #ffb300);
+    color: #1f2937;
+  }
+  
+  .pill {
+    background: #fff;
+    color: #1f2937;
+    font-weight: bold;
+    border-radius: 50%;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+  }
+  
+  header img {
+    transition: transform 0.3s ease;
+  }
+  
+  header img:hover {
+    transform: scale(1.05);
+  }
+
+/* Ticket Form Styles */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.file-upload-wrapper {
+  position: relative;
+}
+
+.form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-1px);
+}
+
+.ticket-card {
+  border-radius: 15px;
+}
+
+.form-control-lg {
+  border-radius: 10px;
+}
+
+.btn-lg {
+  border-radius: 10px;
+}
+
+.btn-outline-brand {
+  color: var(--brand-green);
+  border-color: var(--brand-green);
+}
+
+.btn-outline-brand:hover {
+  background-color: var(--brand-green);
+  color: #fff;
+  border-color: var(--brand-green);
+}
+  
