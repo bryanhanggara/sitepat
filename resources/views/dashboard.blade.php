@@ -45,25 +45,93 @@
                 </div>
             </nav>
     
+            @php
+                $heroTicketCount = auth()->check()
+                    ? \App\Models\Ticket::where('user_id', auth()->id())->count()
+                    : 0;
+                $heroPendingCount = auth()->check()
+                    ? \App\Models\Ticket::where('user_id', auth()->id())->where('status', 'pending')->count()
+                    : 0;
+            @endphp
+
             <!-- Hero Section -->
-            <div class="row align-items-center p-5">
-                <div class="col-lg-7">
-                    <h1 class="display-6 fw-bold mb-3">
-                        Layanan E-Ticket Pendidikan: Cepat, Transparan, Terintegrasi
-                    </h1>
-                    <p class="mb-4 text-light">
-                        Ajukan tiket pengaduan/permohonan, pantau progres, dan terima jadwal pertemuan melalui email atau WhatsApp.
-                    </p>
-                    <a href="{{ route('tickets.create') }}" class="btn btn-brand btn-lg">Buat Tiket</a>
+            <section class="hero-section">
+                <div class="hero-grid-pattern"></div>
+                <div class="hero-blob hero-blob-1"></div>
+                <div class="hero-blob hero-blob-2"></div>
+                <div class="hero-blob hero-blob-3"></div>
+
+                <div class="row align-items-center position-relative" style="z-index: 1;">
+                    <div class="col-lg-7">
+                        <span class="hero-badge">
+                            <span class="pulse-dot"></span>
+                            Layanan Digital Dinas Pendidikan
+                        </span>
+
+                        <h1 class="hero-title text-white">
+                            E-Ticket Pendidikan<br>
+                            <span class="gradient-text">Cepat, Transparan, Terintegrasi</span>
+                        </h1>
+
+                        <p class="hero-subtitle">
+                            Ajukan pengaduan atau permohonan layanan, pantau progres tiket secara real-time,
+                            dan terima jadwal pertemuan langsung via email atau WhatsApp.
+                        </p>
+
+                        <div class="hero-chips">
+                            <span class="hero-chip"><i class="bi bi-lightning-charge-fill"></i> Proses Cepat</span>
+                            <span class="hero-chip"><i class="bi bi-shield-check"></i> Terpercaya</span>
+                            <span class="hero-chip"><i class="bi bi-whatsapp"></i> Notifikasi WA</span>
+                            <span class="hero-chip"><i class="bi bi-calendar-check"></i> Jadwal Online</span>
+                        </div>
+
+                        <div class="hero-actions">
+                            <a href="{{ route('tickets.create') }}" class="btn btn-brand btn-lg">
+                                <i class="bi bi-plus-circle me-2"></i>Buat Tiket
+                            </a>
+                            <a href="{{ route('tickets.index') }}" class="btn-hero-outline">
+                                <i class="bi bi-ticket-perforated"></i> Tiket Saya
+                            </a>
+                        </div>
+
+                        <div class="hero-stats">
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">{{ $heroTicketCount }}</span>
+                                <span class="hero-stat-label">Total Tiket</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">{{ $heroPendingCount }}</span>
+                                <span class="hero-stat-label">Pending</span>
+                            </div>
+                            <div class="hero-stat">
+                                <span class="hero-stat-value">24/7</span>
+                                <span class="hero-stat-label">Akses Online</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="hero-visual text-center">
+                            <div class="hero-float-card hero-float-card-1">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                Tiket Terkirim
+                            </div>
+                            <div class="hero-float-card hero-float-card-2">
+                                <i class="bi bi-calendar-event"></i>
+                                Jadwal Aktif
+                            </div>
+                            <div class="hero-float-card hero-float-card-3">
+                                <i class="bi bi-bell-fill"></i>
+                                Notifikasi
+                            </div>
+                            <img src="{{ asset('assets/img/logo.png') }}"
+                                 alt="Ilustrasi E-Ticket"
+                                 class="img-fluid"
+                                 style="max-width: 320px; height: auto; object-fit: contain;">
+                        </div>
+                    </div>
                 </div>
-    
-                <div class="col-lg-5 d-flex justify-content-center align-items-center">
-                    <img src="{{ asset('assets/img/logo.png') }}" 
-                         alt="Ilustrasi E-Ticket" 
-                         class="img-fluid"
-                         style="max-width: 420px; height: auto; object-fit: contain;">
-                </div>
-            </div>
+            </section>
         </div>
     </header>
     
