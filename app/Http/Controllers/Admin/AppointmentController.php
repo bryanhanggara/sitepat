@@ -13,6 +13,10 @@ class AppointmentController extends Controller
 {
     public function store(Request $request, Ticket $ticket)
     {
+        if ($ticket->status !== Ticket::STATUS_PENDING) {
+            return back()->with('error', 'Tiket ini sudah dijadwalkan atau selesai.');
+        }
+
         $validated = $request->validate([
             'scheduled_at' => ['required', 'date'],
             'location' => ['nullable', 'string', 'max:255'],
@@ -45,6 +49,8 @@ class AppointmentController extends Controller
             return redirect()->away($waLink);
         }
 
-        return back()->with('success', 'Janji pertemuan berhasil dijadwalkan.');
+        return redirect()
+            ->route('admin.tickets.show', $ticket)
+            ->with('success', 'Janji pertemuan berhasil dijadwalkan.');
     }
 }

@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 // Admin routes
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/tickets', [TicketAdminController::class, 'index'])->name('tickets.index');
+    Route::get('/tickets/{ticket}', [TicketAdminController::class, 'show'])->name('tickets.show');
     Route::post('/tickets/{ticket}/schedule', [AppointmentController::class, 'store'])->name('tickets.schedule');
     Route::post('/tickets/{ticket}/mark-completed', [TicketAdminController::class, 'markAsCompleted'])->name('tickets.mark-completed');
 });

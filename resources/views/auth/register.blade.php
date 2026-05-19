@@ -5,19 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - ETicket</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/green.css') }}">
     <style>
-        .bg-gradient {
-            background: linear-gradient(135deg, #0e7a3f 0%, #18a558 55%, #2dc36a 100%);
-        }
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .input-focus:focus {
-            box-shadow: 0 0 0 3px rgba(45, 195, 106, 0.1);
-        }
         .password-strength {
             height: 4px;
             border-radius: 2px;
@@ -25,7 +15,7 @@
         }
         .strength-weak { background-color: #ef4444; }
         .strength-medium { background-color: #f59e0b; }
-        .strength-strong { background-color: #10b981; }
+        .strength-strong { background-color: #3b82f6; }
     </style>
 </head>
 <body class="min-h-screen bg-gradient flex items-center justify-center p-4">
@@ -33,7 +23,7 @@
         <!-- Logo/Header -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-4">
-                <i class="fas fa-user-plus text-white text-2xl"></i>
+                <i class="bi bi-person-plus text-white text-2xl"></i>
             </div>
             <h1 class="text-3xl font-bold text-white mb-2">ETicket</h1>
             <p class="text-white text-opacity-80">Buat akun baru</p>
@@ -47,14 +37,14 @@
                 <!-- Name Field -->
                 <div class="mb-4">
                     <label for="name" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-user mr-2"></i>Nama Lengkap
+                        <i class="bi bi-person mr-2"></i>Nama Lengkap
                     </label>
                     <input 
                         id="name" 
                         type="text" 
                         name="name" 
                         value="{{ old('name') }}"
-                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-green-400 transition-colors input-focus"
+                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-blue-400 transition-colors input-focus"
                         placeholder="Masukkan nama lengkap Anda"
                         required 
                         autofocus 
@@ -68,14 +58,14 @@
                 <!-- Email Field -->
                 <div class="mb-4">
                     <label for="email" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-envelope mr-2"></i>Alamat Email
+                        <i class="bi bi-envelope mr-2"></i>Alamat Email
                     </label>
                     <input 
                         id="email" 
                         type="email" 
                         name="email" 
                         value="{{ old('email') }}"
-                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-green-400 transition-colors input-focus"
+                        class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-blue-400 transition-colors input-focus"
                         placeholder="Masukkan alamat email Anda"
                         required 
                         autocomplete="username"
@@ -88,14 +78,14 @@
                 <!-- Password Field -->
                 <div class="mb-4">
                     <label for="password" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-lock mr-2"></i>Password
+                        <i class="bi bi-lock mr-2"></i>Password
                     </label>
                     <div class="relative">
                         <input 
                             id="password" 
                             type="password" 
                             name="password"
-                            class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-green-400 transition-colors input-focus pr-12"
+                            class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-blue-400 transition-colors input-focus pr-12"
                             placeholder="Buat password yang kuat"
                             required 
                             autocomplete="new-password"
@@ -106,7 +96,7 @@
                             onclick="togglePassword('password')"
                             class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-opacity-60 hover:text-opacity-100 transition-colors"
                         >
-                            <i id="password-icon" class="fas fa-eye"></i>
+                            <i id="password-icon" class="bi bi-eye"></i>
                         </button>
                     </div>
                     <!-- Password Strength Indicator -->
@@ -127,14 +117,14 @@
                 <!-- Confirm Password Field -->
                 <div class="mb-6">
                     <label for="password_confirmation" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-lock mr-2"></i>Konfirmasi Password
+                        <i class="bi bi-lock mr-2"></i>Konfirmasi Password
                     </label>
                     <div class="relative">
                         <input 
                             id="password_confirmation" 
                             type="password" 
                             name="password_confirmation"
-                            class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-green-400 transition-colors input-focus pr-12"
+                            class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-30 rounded-lg text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:border-blue-400 transition-colors input-focus pr-12"
                             placeholder="Konfirmasi password Anda"
                             required 
                             autocomplete="new-password"
@@ -145,7 +135,7 @@
                             onclick="togglePassword('password_confirmation')"
                             class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-opacity-60 hover:text-opacity-100 transition-colors"
                         >
-                            <i id="password_confirmation-icon" class="fas fa-eye"></i>
+                            <i id="password_confirmation-icon" class="bi bi-eye"></i>
                         </button>
                     </div>
                     <p id="password-match" class="mt-1 text-xs"></p>
@@ -160,14 +150,14 @@
                         <input 
                             type="checkbox" 
                             id="terms"
-                            class="w-4 h-4 text-green-600 bg-white bg-opacity-10 border-white border-opacity-30 rounded focus:ring-green-500 focus:ring-2 mt-1"
+                            class="w-4 h-4 text-blue-600 bg-white bg-opacity-10 border-white border-opacity-30 rounded focus:ring-blue-500 focus:ring-2 mt-1"
                             required
                         >
                         <span class="ml-2 text-sm">
                             Saya setuju dengan 
-                            <a href="#" class="text-green-300 hover:text-green-200 underline">Syarat & Ketentuan</a> 
+                            <a href="#" class="text-blue-300 hover:text-blue-200 underline">Syarat & Ketentuan</a> 
                             dan 
-                            <a href="#" class="text-green-300 hover:text-green-200 underline">Kebijakan Privasi</a>
+                            <a href="#" class="text-blue-300 hover:text-blue-200 underline">Kebijakan Privasi</a>
                         </span>
                     </label>
                 </div>
@@ -177,7 +167,7 @@
                     type="submit"
                     class="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
                 >
-                    <i class="fas fa-user-plus mr-2"></i>Buat Akun
+                    <i class="bi bi-person-plus mr-2"></i>Buat Akun
                 </button>
             </form>
 
@@ -187,7 +177,7 @@
                     Sudah punya akun? 
                     <a 
                         href="{{ route('login') }}" 
-                        class="text-green-300 hover:text-green-200 font-medium transition-colors"
+                        class="text-blue-300 hover:text-blue-200 font-medium transition-colors"
                     >
                         Masuk di sini
                     </a>
@@ -210,10 +200,10 @@
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                passwordIcon.className = 'fas fa-eye-slash';
+                passwordIcon.className = 'bi bi-eye-slash';
             } else {
                 passwordInput.type = 'password';
-                passwordIcon.className = 'fas fa-eye';
+                passwordIcon.className = 'bi bi-eye';
             }
         }
 
@@ -267,7 +257,7 @@
             if (confirmPassword.length > 0) {
                 if (password === confirmPassword) {
                     matchText.textContent = '✓ Password cocok';
-                    matchText.className = 'mt-1 text-xs text-green-300';
+                    matchText.className = 'mt-1 text-xs text-blue-300';
                 } else {
                     matchText.textContent = '✗ Password tidak cocok';
                     matchText.className = 'mt-1 text-xs text-red-300';

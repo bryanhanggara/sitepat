@@ -13,19 +13,19 @@
 
         <!-- Bootstrap for elegant green theme -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Bootstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <!-- Custom Green Theme CSS -->
         <link rel="stylesheet" href="{{ asset('assets/css/green.css') }}">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-vh-100 bg-light">
+    <body class="font-sans antialiased bg-app">
+        <div class="min-vh-100">
             
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="bg-white shadow">
+                <header class="glass-header">
                     <div class="container py-4">
                         {{ $header }}
                     </div>

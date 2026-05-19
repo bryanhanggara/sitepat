@@ -16,7 +16,6 @@ class TicketAdminController extends Controller
             ->paginate(10, ['*'], 'pending');
             
         $scheduledTickets = Ticket::where('status', Ticket::STATUS_SCHEDULED)
-            ->whereHas('appointment')
             ->with(['user', 'appointment'])
             ->latest()
             ->paginate(10, ['*'], 'scheduled');
@@ -29,10 +28,23 @@ class TicketAdminController extends Controller
         return view('admin.tickets.index', compact('pendingTickets', 'scheduledTickets', 'completedTickets'));
     }
 
+    public function show(Ticket $ticket)
+    {
+        $ticket->load(['user', 'appointment.admin']);
+
+        return view('admin.tickets.show', compact('ticket'));
+    }
+
     public function markAsCompleted(Ticket $ticket)
     {
+        if ($ticket->status !== Ticket::STATUS_SCHEDULED) {
+            return back()->with('error', 'Hanya tiket terjadwal yang dapat ditandai selesai.');
+        }
+
         $ticket->update(['status' => Ticket::STATUS_COMPLETED]);
-        
-        return back()->with('success', 'Tiket berhasil ditandai sebagai selesai.');
+
+        return redirect()
+            ->route('admin.tickets.show', $ticket)
+            ->with('success', 'Tiket berhasil ditandai sebagai selesai.');
     }
 }

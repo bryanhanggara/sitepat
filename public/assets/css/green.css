@@ -1,174 +1,298 @@
-/* 1️⃣ Import font harus paling atas */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+/* SITEPAT — Modern Blue Glass Theme */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* 2️⃣ Root Variables */
 :root {
-  --green-900: #0e7a3f;
-  --green-700: #18a558;
-  --green-500: #2dc36a;
-  --green: #20a05a;
-  --green-dark: #17844a;
+  --blue-950: #0f172a;
+  --blue-900: #1e3a8a;
+  --blue-800: #1e40af;
+  --blue-700: #1d4ed8;
+  --blue-600: #2563eb;
+  --blue-500: #3b82f6;
+  --blue-400: #60a5fa;
+  --blue-100: #dbeafe;
+  --blue-50: #eff6ff;
+
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-strong: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.55);
+  --glass-shadow: 0 8px 32px rgba(30, 64, 175, 0.12);
+  --glass-blur: blur(16px);
+
+  --brand-primary: var(--blue-600);
+  --brand-dark: var(--blue-800);
+  --brand-light: var(--blue-400);
 }
 
-/* 3️⃣ Terapkan font ke semua elemen */
 html, body, * {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-optical-sizing: auto;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Background Gradient Brand */
+/* Page background */
+body.bg-app,
+.bg-app {
+  background: linear-gradient(160deg, #e0e7ff 0%, #dbeafe 30%, #eff6ff 60%, #f8fafc 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+body.bg-auth {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 35%, #2563eb 70%, #3b82f6 100%) !important;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+/* Brand header — glass navbar */
 .bg-brand {
-  background: linear-gradient(
-    180deg,
-    var(--green-900),
-    var(--green-700) 55%,
-    var(--green-500)
-  ) !important;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.92), rgba(37, 99, 235, 0.88)) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 24px rgba(15, 23, 42, 0.15) !important;
+  color: #fff !important;
 }
 
-/* Text Color Brand */
 .text-brand {
-  color: var(--green) !important;
+  color: var(--brand-primary) !important;
 }
 
-/* Button Brand */
+/* Glass card */
+.glass-card,
+.card-brand,
+.card.shadow-sm {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: 16px !important;
+}
+
+.card-header {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2) !important;
+  border-radius: 16px 16px 0 0 !important;
+}
+
+.card-header.bg-brand {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(59, 130, 246, 0.85)) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+/* Buttons */
 .btn-brand {
-    background-color: #ffd200 !important;
-    color: #1f2937 !important;
-    border: none !important;
-    padding: 12px 28px !important;
-    font-weight: 600 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 6px 16px rgba(255, 210, 0, 0.3) !important;
-    transition: all 0.3s ease !important;
-  }
-  
-  .btn-brand:hover {
-    background-color: #ffca00 !important;
-    box-shadow: 0 8px 20px rgba(255, 210, 0, 0.45) !important;
-    transform: translateY(-2px) !important;
-    color: #1f2937 !important;
-  }
-  
-/* Card Brand */
-.card-brand {
-  border: none;
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.08);
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-600)) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  padding: 10px 24px !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35) !important;
+  transition: all 0.25s ease !important;
 }
 
-/* Pill Component */
+.btn-brand:hover {
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-500)) !important;
+  color: #fff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45) !important;
+}
+
+.btn-outline-brand,
+.btn-outline-success {
+  color: var(--blue-600) !important;
+  border-color: rgba(37, 99, 235, 0.5) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 10px !important;
+}
+
+.btn-outline-brand:hover,
+.btn-outline-success:hover {
+  background: var(--blue-600) !important;
+  color: #fff !important;
+  border-color: var(--blue-600) !important;
+}
+
+/* Pill logo */
 .pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: #e7f7ee;
-  color: var(--green);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--blue-700);
+  font-weight: 700;
   font-size: 14px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
 }
 
-/* Dot Element */
 .dot {
   width: 14px;
   height: 14px;
   border-radius: 4px;
-  background: #e8eef6;
+  background: var(--blue-100);
   display: inline-block;
 }
 
-/* Footer Gradient */
+/* Footer */
 .footer-brand {
-  background: linear-gradient(180deg, var(--green-700), var(--green-900));
+  background: linear-gradient(180deg, var(--blue-900), var(--blue-950)) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Pastikan card-body jadi flex agar isi bisa menyesuaikan */
+/* Card layout helpers */
 .card-brand .card-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  /* Buat tombol selalu nempel di bawah card */
-  .card-brand .btn-brand,
-  .card-brand .btn-secondary {
-    margin-top: auto;
-    align-self: flex-start; /* biar tombol tetap di kiri, bukan tengah */
-  }
-  
-  .bg-brand {
-    background: linear-gradient(120deg, #ffd200, #ffb300);
-    color: #1f2937;
-  }
-  
-  .pill {
-    background: #fff;
-    color: #1f2937;
-    font-weight: bold;
-    border-radius: 50%;
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    line-height: 32px;
-  }
-  
-  header img {
-    transition: transform 0.3s ease;
-  }
-  
-  header img:hover {
-    transform: scale(1.05);
-  }
-
-/* Ticket Form Styles */
-.bg-gradient-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.file-upload-wrapper {
-  position: relative;
+.card-brand .btn-brand,
+.card-brand .btn-secondary {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
+/* Forms */
 .form-control:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+  border-color: var(--blue-500) !important;
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25) !important;
+}
+
+/* Badges */
+.badge.bg-brand {
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-600)) !important;
+}
+
+.badge.bg-pending {
+  background-color: #fbbf24 !important;
+  color: #1e293b !important;
+}
+
+.badge.bg-scheduled {
+  background-color: var(--blue-400) !important;
+  color: #fff !important;
+}
+
+.badge.bg-completed {
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+  color: #fff !important;
+}
+
+.bg-success-subtle.text-brand {
+  background-color: var(--blue-50) !important;
+  color: var(--blue-700) !important;
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+  color: #64748b;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  margin-right: 4px;
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--blue-600) !important;
+  background: var(--glass-bg-strong) !important;
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border) !important;
+  border-bottom-color: transparent !important;
+  font-weight: 600;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* Admin layout header */
+.glass-header {
+  background: var(--glass-bg-strong) !important;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+/* Auth glass form */
+.glass-effect {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.2) !important;
+}
+
+.bg-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 35%, #2563eb 70%, #3b82f6 100%) !important;
+}
+
+.input-focus:focus {
+  border-color: var(--blue-400) !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25) !important;
+}
+
+/* Alerts */
+.alert-success {
+  background: rgba(34, 197, 94, 0.15) !important;
+  border: 1px solid rgba(34, 197, 94, 0.3) !important;
+  backdrop-filter: blur(8px);
+}
+
+.alert-danger {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* Table */
+.table {
+  --bs-table-bg: transparent;
+}
+
+.table-light {
+  --bs-table-bg: rgba(219, 234, 254, 0.4);
+}
+
+/* Dropdown on glass header */
+.bg-brand .btn-light {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: var(--blue-800) !important;
+  font-weight: 600;
+}
+
+/* Legacy ticket form helpers */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-400)) !important;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border: none;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-600)) !important;
+  border: none !important;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, var(--blue-400), var(--blue-500)) !important;
 }
 
 .ticket-card {
-  border-radius: 15px;
+  border-radius: 16px;
 }
 
-.form-control-lg {
-  border-radius: 10px;
+header img {
+  transition: transform 0.3s ease;
 }
 
-.btn-lg {
-  border-radius: 10px;
+header img:hover {
+  transform: scale(1.05);
 }
 
-.btn-outline-brand {
-  color: var(--brand-green);
-  border-color: var(--brand-green);
+.border-warning.card {
+  border-color: rgba(251, 191, 36, 0.5) !important;
 }
-
-.btn-outline-brand:hover {
-  background-color: var(--brand-green);
-  color: #fff;
-  border-color: var(--brand-green);
-}
-  

@@ -5,27 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ETicket</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .bg-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .glass-effect {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        .input-focus:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/green.css') }}">
 </head>
 <body class="min-h-screen bg-gradient flex items-center justify-center p-4">
     <div class="w-full max-w-md">
         <!-- Logo/Header -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-4">
-                <i class="fas fa-ticket-alt text-white text-2xl"></i>
+                <i class="bi bi-ticket-perforated text-white text-2xl"></i>
             </div>
             <h1 class="text-3xl font-bold text-white mb-2">ETicket</h1>
             <p class="text-white text-opacity-80">Sign in to your account</p>
@@ -34,7 +22,7 @@
         <!-- Login Form -->
         <div class="glass-effect rounded-2xl p-8 shadow-2xl">
             @if (session('status'))
-                <div class="mb-4 p-4 bg-green-500 bg-opacity-20 text-green-100 rounded-lg border border-green-500 border-opacity-30">
+                <div class="mb-4 p-4 bg-blue-500 bg-opacity-20 text-blue-100 rounded-lg border border-blue-500 border-opacity-30">
                     {{ session('status') }}
                 </div>
             @endif
@@ -45,7 +33,7 @@
                 <!-- Email Field -->
                 <div class="mb-6">
                     <label for="email" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-envelope mr-2"></i>Email Address
+                        <i class="bi bi-envelope mr-2"></i>Email Address
                     </label>
                     <input 
                         id="email" 
@@ -66,7 +54,7 @@
                 <!-- Password Field -->
                 <div class="mb-6">
                     <label for="password" class="block text-white text-sm font-medium mb-2">
-                        <i class="fas fa-lock mr-2"></i>Password
+                        <i class="bi bi-lock mr-2"></i>Password
                     </label>
                     <div class="relative">
                         <input 
@@ -83,7 +71,7 @@
                             onclick="togglePassword()"
                             class="absolute right-3 top-1/2 transform -translate-y-1/2 text-white text-opacity-60 hover:text-opacity-100 transition-colors"
                         >
-                            <i id="password-icon" class="fas fa-eye"></i>
+                            <i id="password-icon" class="bi bi-eye"></i>
                         </button>
                     </div>
                     @error('password')
@@ -117,7 +105,7 @@
                     type="submit"
                     class="w-full bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
                 >
-                    <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                    <i class="bi bi-box-arrow-in-right mr-2"></i>Sign In
                 </button>
             </form>
 
@@ -150,10 +138,10 @@
             
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                passwordIcon.className = 'fas fa-eye-slash';
+                passwordIcon.className = 'bi bi-eye-slash';
             } else {
                 passwordInput.type = 'password';
-                passwordIcon.className = 'fas fa-eye';
+                passwordIcon.className = 'bi bi-eye';
             }
         }
 

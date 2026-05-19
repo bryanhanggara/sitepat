@@ -19,16 +19,16 @@
             @if($ticket->attachment_path)
                 <div class="mt-3 p-3 bg-light rounded">
                     <h6 class="mb-2">
-                        <i class="fas fa-paperclip me-2 text-primary"></i>
+                        <i class="bi bi-paperclip me-2 text-primary"></i>
                         Lampiran Dokumen
                     </h6>
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-file-pdf me-2 text-danger"></i>
+                        <i class="bi bi-file-earmark-pdf me-2 text-danger"></i>
                         <span class="me-3">{{ $ticket->attachment_original_name }}</span>
                         <a href="{{ Storage::url($ticket->attachment_path) }}" 
                            target="_blank" 
                            class="btn btn-sm btn-outline-primary">
-                            <i class="fas fa-download me-1"></i>
+                            <i class="bi bi-download me-1"></i>
                             Download
                         </a>
                     </div>

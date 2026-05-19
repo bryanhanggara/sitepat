@@ -8,9 +8,20 @@ use Illuminate\Validation\Rule;
 
 class ProfileUpdateRequest extends FormRequest
 {
+    protected function prepareForValidation(): void
+    {
+        if ($this->filled('phone')) {
+            $digits = preg_replace('/[^0-9]/', '', $this->phone);
+
+            if (str_starts_with($digits, '0')) {
+                $digits = '62'.substr($digits, 1);
+            }
+
+            $this->merge(['phone' => $digits]);
+        }
+    }
+
     /**
-     * Get the validation rules that apply to the request.
-     *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
@@ -25,6 +36,7 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'phone' => ['required', 'string', 'min:10', 'max:20'],
         ];
     }
 }

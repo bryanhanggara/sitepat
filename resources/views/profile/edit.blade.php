@@ -11,20 +11,8 @@
     <!-- Bootstrap Icons for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-        :root { --brand-green: #198754; }
-        .bg-brand { background-color: var(--brand-green) !important; }
-        .text-brand { color: var(--brand-green) !important; }
-        .btn-brand { background-color: var(--brand-green); color: #fff; border-color: var(--brand-green); }
-        .btn-brand:hover { background-color: #146c43; color: #fff; border-color: #146c43; }
-        .form-control:focus { border-color: var(--brand-green); box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.25); }
-        .card { border: none; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); }
-        .card-header { background-color: #f8f9fa; border-bottom: 1px solid #dee2e6; }
-        body { background-color: #f8f9fa; }
-        * { color-scheme: light !important; }
-    </style>
 </head>
-<body class="bg-light">
+<body class="bg-app">
     <!-- Header -->
     <header class="bg-brand text-white">
         <div class="container py-3">
@@ -79,6 +67,17 @@
                                 <label for="name" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $user->name) }}" required autofocus>
                                 @error('name')
+                                    <div class="text-danger small mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Nomor HP / WhatsApp</label>
+                                <input type="tel" class="form-control" id="phone" name="phone"
+                                       value="{{ old('phone', $user->phone) }}"
+                                       placeholder="08xxxxxxxx atau 628xxxxxxxx" required>
+                                <div class="form-text">Digunakan untuk notifikasi jadwal pertemuan via WhatsApp.</div>
+                                @error('phone')
                                     <div class="text-danger small mt-1">{{ $message }}</div>
                                 @enderror
                             </div>

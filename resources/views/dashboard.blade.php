@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body class="bg-light">
+<body class="bg-app">
     <!-- Header -->
     <header class="bg-brand text-white">
         <div class="container py-4">
@@ -230,12 +230,12 @@
             <div class="col-lg-5">
             <div class="d-flex align-items-center mb-3">
                 <span class="pill me-2">S</span>
-                <strong class="fs-5">SINANAS</strong>
+                <strong class="fs-5">SITEPAT</strong>
             </div>
             <p class="mb-2 fw-semibold">Dinas Pendidikan Kota Prabumulih</p>
             <p class="small mb-2">Layanan E-Ticket Pendidikan untuk mempermudah pengaduan dan permohonan masyarakat secara cepat, transparan, dan terintegrasi.</p>
             <p class="small mb-2">Jl. Jenderal Sudirman No.1, Kota Prabumulih</p>
-            <p class="small mb-0">Email: disdik@prabumulih.go.id | Telp: (0713) xxxx</p>
+            <p class="small mb-0"> Telp: +62822 6981 0609</p>
             </div>
     
             <!-- Navigation Links -->
@@ -262,8 +262,8 @@
                 <div class="col-12 col-md-4">
                 <h6 class="text-light fw-semibold mb-3">HUBUNGI KAMI</h6>
                 <ul class="list-unstyled small">
-                    <li><i class="bi bi-envelope me-2"></i> disdik@prabumulih.go.id</li>
-                    <li><i class="bi bi-telephone me-2"></i> (0713) xxxx</li>
+        
+                    <li><i class="bi bi-telephone me-2"></i> +62822 6981 0609</li>
                     <li><i class="bi bi-geo-alt me-2"></i> Kota Prabumulih</li>
                 </ul>
                 </div>
@@ -274,8 +274,8 @@
         <hr class="border-light opacity-25 my-4">
     
         <div class="text-center small">
-            <span>COPYRIGHT © 2025 — Dinas Pendidikan Kota Prabumulih</span><br>
-            <span class="text-white-50">Developed by <strong>HangsCode</strong></span>
+            <span>COPYRIGHT © 2026 — Dinas Pendidikan Kota Prabumulih</span><br>
+            <span class="text-white-50">VERSI <strong>1.2</strong></span>
         </div>
         </div>
     </footer>
