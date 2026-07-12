@@ -1,61 +1,213 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# E-Ticket SITEPAT
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem layanan tiket digital untuk **Dinas Pendidikan Kota Prabumulih**. Aplikasi ini memungkinkan masyarakat mengajukan pengaduan atau permohonan layanan, memantau status tiket secara real-time, dan menerima jadwal pertemuan melalui email atau WhatsApp.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Pengguna (User)
+- Registrasi dan login akun
+- Membuat tiket layanan dengan subjek, deskripsi, dan lampiran PDF (maks. 10 MB)
+- Melihat daftar tiket berdasarkan status: **Pending**, **Scheduled**, **Completed**
+- Melihat detail tiket dan informasi janji pertemuan
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Admin
+- Panel admin untuk mengelola semua tiket
+- Menjadwalkan janji pertemuan (waktu, lokasi, catatan)
+- Mengirim notifikasi email otomatis ke pengguna
+- Redirect ke WhatsApp dengan pesan terisi otomatis (jika pengguna memiliki nomor telepon)
+- Menandai tiket sebagai selesai
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Tech Stack
 
-## Learning Laravel
+| Komponen | Teknologi |
+|----------|-----------|
+| Backend | Laravel 12, PHP 8.2+ |
+| Autentikasi | Laravel Breeze |
+| Database | MySQL |
+| Frontend | Bootstrap 5, Blade Templates |
+| Asset bundler | Vite, Tailwind CSS |
+| Testing | Pest PHP |
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Persyaratan Sistem
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP >= 8.2
+- Composer
+- Node.js & npm
+- MySQL
+- Ekstensi PHP: BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalasi
 
-## Laravel Sponsors
+### 1. Clone repository
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone <url-repository> eticket
+cd eticket
+```
 
-### Premium Partners
+### 2. Install dependensi
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Konfigurasi environment
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Code of Conduct
+Edit file `.env` dan sesuaikan konfigurasi database:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```env
+APP_NAME="E-Ticket SITEPAT"
+APP_URL=http://localhost:8000
 
-## Security Vulnerabilities
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=eticket
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 4. Migrasi dan seed database
 
-## License
+```bash
+php artisan migrate
+php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Buat symbolic link storage
+
+```bash
+php artisan storage:link
+```
+
+### 6. Jalankan aplikasi
+
+**Development (server + queue + logs + Vite sekaligus):**
+
+```bash
+composer dev
+```
+
+**Atau jalankan secara terpisah:**
+
+```bash
+php artisan serve
+npm run dev
+```
+
+Aplikasi akan tersedia di `http://localhost:8000`.
+
+## Akun Demo
+
+Setelah menjalankan seeder, akun berikut tersedia:
+
+| Role | Email | Password |
+|------|-------|----------|
+| Admin | admin@eticket.test | password |
+| User | user@eticket.test | password |
+
+## Alur Kerja Tiket
+
+```
+Pending → Scheduled → Completed
+```
+
+1. **Pending** — Pengguna membuat tiket baru
+2. **Scheduled** — Admin menjadwalkan janji pertemuan; pengguna menerima notifikasi email (dan opsi WhatsApp)
+3. **Completed** — Admin menandai tiket selesai setelah pertemuan
+
+## Struktur Route
+
+| Route | Deskripsi |
+|-------|-----------|
+| `/` | Dashboard |
+| `/tickets` | Daftar tiket pengguna |
+| `/tickets/create` | Form buat tiket |
+| `/tickets/{id}` | Detail tiket |
+| `/admin/tickets` | Panel admin — daftar tiket |
+| `/admin/tickets/{id}` | Panel admin — detail & jadwalkan pertemuan |
+
+## Konfigurasi Email
+
+Untuk mengirim notifikasi janji pertemuan via email, sesuaikan pengaturan mail di `.env`:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.example.com
+MAIL_PORT=587
+MAIL_USERNAME=your-email@example.com
+MAIL_PASSWORD=your-password
+MAIL_FROM_ADDRESS="noreply@sitepat.go.id"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+## Deploy ke Production
+
+Setelah deploy ke server, jalankan script perbaikan storage:
+
+```bash
+chmod +x fix-server-storage.sh
+./fix-server-storage.sh
+```
+
+Script ini akan:
+- Membuat symbolic link `public/storage`
+- Mengatur permission dan ownership direktori storage
+- Membersihkan dan meng-cache konfigurasi Laravel
+
+Pastikan juga menjalankan:
+
+```bash
+composer install --optimize-autoloader --no-dev
+npm run build
+php artisan migrate --force
+```
+
+## Testing
+
+```bash
+composer test
+# atau
+php artisan test
+```
+
+## Struktur Direktori Penting
+
+```
+app/
+├── Http/Controllers/
+│   ├── TicketController.php          # CRUD tiket (user)
+│   └── Admin/
+│       ├── TicketAdminController.php # Kelola tiket (admin)
+│       └── AppointmentController.php # Jadwalkan pertemuan
+├── Models/
+│   ├── Ticket.php
+│   ├── Appointment.php
+│   └── User.php
+└── Notifications/
+    └── AppointmentScheduled.php      # Notifikasi email
+
+resources/views/
+├── dashboard.blade.php
+├── tickets/                          # Halaman user
+└── admin/tickets/                    # Halaman admin
+
+database/
+├── migrations/
+└── seeders/DatabaseSeeder.php
+```
+
+## Lisensi
+
+Proyek ini menggunakan framework [Laravel](https://laravel.com) yang dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+**SITEPAT** — Dinas Pendidikan Kota Prabumulih  
+Versi 1.2
