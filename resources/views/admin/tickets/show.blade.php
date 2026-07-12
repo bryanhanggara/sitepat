@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
             <h2 class="h4 m-0 text-brand">Detail Tiket #{{ $ticket->id }}</h2>
             <a href="{{ route('admin.tickets.index', ['tab' => $ticket->status]) }}" class="btn btn-sm btn-outline-secondary">
-                <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar
+                <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Tiket
             </a>
         </div>
     </x-slot>
